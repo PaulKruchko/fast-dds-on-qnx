@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dds xmlns="http://www.eprosima.com">
+  <profiles>
+
+    <!-- Participant profile: unicast-only meta traffic (disables multicast discovery) -->
+    <participant profile_name="ipc_participant" is_default_profile="true">
+      <rtps>
+        <builtin>
+          <metatrafficUnicastLocatorList>
+            <locator>
+              <udpv4>
+                <address>127.0.0.1</address>
+                <port>7412</port>
+              </udpv4>
+            </locator>
+          </metatrafficUnicastLocatorList>
+
+          <!-- Optional but recommended if you later run across hosts:
+               add peers here (must match their metatraffic locators) -->
+          <initialPeersList>
+            <locator>
+              <udpv4>
+                <address>127.0.0.1</address>
+                <port>7412</port>
+              </udpv4>
+            </locator>
+          </initialPeersList>
+        </builtin>
+      </rtps>
+    </participant>
+
+    <!-- Writer QoS: RELIABLE + KEEP_LAST depth -->
+    <data_writer profile_name="ipc_writer" is_default_profile="true">
+      <topic>
+        <historyQos>
+          <kind>KEEP_LAST</kind>
+          <depth>32</depth>
+        </historyQos>
+      </topic>
+      <qos>
+        <reliability>
+          <kind>RELIABLE</kind>
+          <max_blocking_time>
+            <sec>1</sec>
+            <nanosec>0</nanosec>
+          </max_blocking_time>
+        </reliability>
+      </qos>
+    </data_writer>
+
+    <!-- Reader QoS: RELIABLE + KEEP_LAST depth -->
+    <data_reader profile_name="ipc_reader" is_default_profile="true">
+      <topic>
+        <historyQos>
+          <kind>KEEP_LAST</kind>
+          <depth>32</depth>
+        </historyQos>
+      </topic>
+      <qos>
+        <reliability>
+          <kind>RELIABLE</kind>
+          <max_blocking_time>
+            <sec>1</sec>
+            <nanosec>0</nanosec>
+          </max_blocking_time>
+        </reliability>
+      </qos>
+    </data_reader>
+
+  </profiles>
+</dds>

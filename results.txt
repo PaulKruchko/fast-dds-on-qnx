@@ -1,0 +1,1167 @@
+
+[1;34m==> Checking environment[0m
+
+[1;34m==> Using staging prefix: /home/paulkruchko/fast-dds-on-qnx/qnx_stage[0m
+
+[1;34m==> Deps:[0m
+
+[1;34m==>   FOONATHAN_DIR=/home/paulkruchko/fast-dds-on-qnx/../foonathan_memory[0m
+
+[1;34m==>   FASTCDR_DIR=/home/paulkruchko/fast-dds-on-qnx/../Fast-CDR[0m
+
+[1;34m==>   FASTDDS_DIR=/home/paulkruchko/fast-dds-on-qnx/../Fast-DDS[0m
+
+[1;34m==> Configuring foonathan_memory[0m
+-- Fetching doctest
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan
+
+[1;34m==> Building foonathan_memory[0m
+[  3%] Built target foonathan_memory_node_size_debugger
+[ 40%] Built target foonathan_memory
+[ 58%] Built target foonathan_memory_example_using_allocators
+[ 60%] Built target foonathan_memory_example_allocator_storage
+[ 58%] Built target foonathan_memory_example_taking_allocators
+[ 60%] Built target foonathan_memory_example_tracking
+[ 61%] Built target foonathan_memory_profiling
+[ 61%] Built target foonathan_memory_example_joint_allocation
+[ 63%] Building CXX object test/CMakeFiles/foonathan_memory_test.dir/test.cpp.o
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/filesystem:245,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:189,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/iomanip:518:1: error: reference to 'basic_ostream' is ambiguous
+ std::basic_ostream<_CharT, _Traits> &
+ ^~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ios:215,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:138,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:184,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/iosfwd:125:32: note: candidates are: 'template<class _CharT, class _Traits> class std::__1::basic_ostream'
+     class _LIBCPP_TEMPLATE_VIS basic_ostream;
+                                ^~~~~~~~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:530:7: note:                 'template<class charT, class traits> class std::basic_ostream'
+ class basic_ostream; // NOLINT(fuchsia-virtual-inheritance)
+       ^~~~~~~~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3346:9: error: reference to 'ostream' is ambiguous
+         std::ostream* push() {
+         ^~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ios:215,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:138,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:184,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/iosfwd:161:38: note: candidates are: 'typedef class std::__1::basic_ostream<char> std::__1::ostream'
+ typedef basic_ostream<char>          ostream;
+                                      ^~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:531:48: note:                 'typedef class std::basic_ostream<char, std::char_traits<char> > std::ostream'
+ typedef basic_ostream<char, char_traits<char>> ostream; // NOLINT(modernize-use-using)
+                                                ^~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: In member function 'doctest::String doctest::detail::<unnamed class>::pop()':
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3359:33: error: no matching function for call to 'doctest::String::String(std::__1::stringstream&, unsigned int&)'
+             return String(ss, sz);
+                                 ^
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:635:5: note: candidate: 'doctest::String::String(doctest::String&&)'
+     String(String&& other) noexcept;
+     ^~~~~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:635:5: note:   candidate expects 1 argument, 2 provided
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:630:5: note: candidate: 'doctest::String::String(const doctest::String&)'
+     String(const String& other);
+     ^~~~~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:630:5: note:   candidate expects 1 argument, 2 provided
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:628:5: note: candidate: 'doctest::String::String(std::istream&, doctest::String::size_type)'
+     String(std::istream& in, size_type in_size);
+     ^~~~~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:628:5: note:   no known conversion for argument 1 from 'std::__1::stringstream' {aka 'std::__1::basic_stringstream<char>'} to 'std::istream&' {aka 'std::basic_istream<char, std::char_traits<char> >&'}
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:626:5: note: candidate: 'doctest::String::String(const char*, doctest::String::size_type)'
+     String(const char* in, size_type in_size);
+     ^~~~~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:626:5: note:   no known conversion for argument 1 from 'std::__1::stringstream' {aka 'std::__1::basic_stringstream<char>'} to 'const char*'
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:625:5: note: candidate: 'doctest::String::String(const char*)'
+     String(const char* in);
+     ^~~~~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:625:5: note:   candidate expects 1 argument, 2 provided
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:621:5: note: candidate: 'doctest::String::String()'
+     String() noexcept;
+     ^~~~~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:621:5: note:   candidate expects 0 arguments, 2 provided
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: At global scope:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3363:5: error: reference to 'ostream' is ambiguous
+     std::ostream* tlssPush() {
+     ^~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ios:215,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:138,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:184,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/iosfwd:161:38: note: candidates are: 'typedef class std::__1::basic_ostream<char> std::__1::ostream'
+ typedef basic_ostream<char>          ostream;
+                                      ^~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:531:48: note:                 'typedef class std::basic_ostream<char, std::char_traits<char> > std::ostream'
+ typedef basic_ostream<char, char_traits<char>> ostream; // NOLINT(modernize-use-using)
+                                                ^~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3650:15: error: expected constructor, destructor, or type conversion before '(' token
+ String::String(std::istream& in, size_type in_size) {
+               ^
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3807:1: error: reference to 'ostream' is ambiguous
+ std::ostream& operator<<(std::ostream& s, const String& in) { return s << in.c_str(); }
+ ^~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ios:215,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:138,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:184,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/iosfwd:161:38: note: candidates are: 'typedef class std::__1::basic_ostream<char> std::__1::ostream'
+ typedef basic_ostream<char>          ostream;
+                                      ^~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:531:48: note:                 'typedef class std::basic_ostream<char, std::char_traits<char> > std::ostream'
+ typedef basic_ostream<char, char_traits<char>> ostream; // NOLINT(modernize-use-using)
+                                                ^~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3825:31: error: variable or field 'color_to_stream' declared void
+     void color_to_stream(std::ostream&, Color::Enum) DOCTEST_BRANCH_ON_DISABLED({}, ;)
+                               ^~~~~~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3825:26: error: reference to 'ostream' is ambiguous
+     void color_to_stream(std::ostream&, Color::Enum) DOCTEST_BRANCH_ON_DISABLED({}, ;)
+                          ^~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ios:215,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:138,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:184,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/iosfwd:161:38: note: candidates are: 'typedef class std::__1::basic_ostream<char> std::__1::ostream'
+ typedef basic_ostream<char>          ostream;
+                                      ^~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:531:48: note:                 'typedef class std::basic_ostream<char, std::char_traits<char> > std::ostream'
+ typedef basic_ostream<char, char_traits<char>> ostream; // NOLINT(modernize-use-using)
+                                                ^~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3825:39: error: expected primary-expression before ',' token
+     void color_to_stream(std::ostream&, Color::Enum) DOCTEST_BRANCH_ON_DISABLED({}, ;)
+                                       ^
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3825:52: error: expected primary-expression before ')' token
+     void color_to_stream(std::ostream&, Color::Enum) DOCTEST_BRANCH_ON_DISABLED({}, ;)
+                                                    ^
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3829:5: error: reference to 'ostream' is ambiguous
+     std::ostream& operator<<(std::ostream& s, Color::Enum code) {
+     ^~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ios:215,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:138,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:184,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/iosfwd:161:38: note: candidates are: 'typedef class std::__1::basic_ostream<char> std::__1::ostream'
+ typedef basic_ostream<char>          ostream;
+                                      ^~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:531:48: note:                 'typedef class std::basic_ostream<char, std::char_traits<char> > std::ostream'
+ typedef basic_ostream<char, char_traits<char>> ostream; // NOLINT(modernize-use-using)
+                                                ^~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3943:43: error: variable or field 'fill' declared void
+     void filldata<const void*>::fill(std::ostream* stream, const void* in) {
+                                           ^~~~~~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3943:38: error: reference to 'ostream' is ambiguous
+     void filldata<const void*>::fill(std::ostream* stream, const void* in) {
+                                      ^~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ios:215,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:138,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:184,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/iosfwd:161:38: note: candidates are: 'typedef class std::__1::basic_ostream<char> std::__1::ostream'
+ typedef basic_ostream<char>          ostream;
+                                      ^~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:531:48: note:                 'typedef class std::basic_ostream<char, std::char_traits<char> > std::ostream'
+ typedef basic_ostream<char, char_traits<char>> ostream; // NOLINT(modernize-use-using)
+                                                ^~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3943:52: error: 'stream' was not declared in this scope
+     void filldata<const void*>::fill(std::ostream* stream, const void* in) {
+                                                    ^~~~~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3943:52: note: suggested alternative: 'strcat'
+     void filldata<const void*>::fill(std::ostream* stream, const void* in) {
+                                                    ^~~~~~
+                                                    strcat
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3943:60: error: expected primary-expression before 'const'
+     void filldata<const void*>::fill(std::ostream* stream, const void* in) {
+                                                            ^~~~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: In function 'doctest::String doctest::detail::toStreamLit(T)':
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3950:9: error: reference to 'ostream' is ambiguous
+         std::ostream* os = tlssPush();
+         ^~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ios:215,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:138,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:184,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/iosfwd:161:38: note: candidates are: 'typedef class std::__1::basic_ostream<char> std::__1::ostream'
+ typedef basic_ostream<char>          ostream;
+                                      ^~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:531:48: note:                 'typedef class std::basic_ostream<char, std::char_traits<char> > std::ostream'
+ typedef basic_ostream<char, char_traits<char>> ostream; // NOLINT(modernize-use-using)
+                                                ^~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3950:23: error: 'os' was not declared in this scope
+         std::ostream* os = tlssPush();
+                       ^~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3950:23: note: suggested alternative: 'cos'
+         std::ostream* os = tlssPush();
+                       ^~
+                       cos
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: At global scope:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:4418:31: error: variable or field 'color_to_stream' declared void
+     void color_to_stream(std::ostream& s, Color::Enum code) {
+                               ^~~~~~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:4418:26: error: reference to 'ostream' is ambiguous
+     void color_to_stream(std::ostream& s, Color::Enum code) {
+                          ^~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ios:215,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:138,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:184,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/iosfwd:161:38: note: candidates are: 'typedef class std::__1::basic_ostream<char> std::__1::ostream'
+ typedef basic_ostream<char>          ostream;
+                                      ^~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:531:48: note:                 'typedef class std::basic_ostream<char, std::char_traits<char> > std::ostream'
+ typedef basic_ostream<char, char_traits<char>> ostream; // NOLINT(modernize-use-using)
+                                                ^~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:4418:40: error: 's' was not declared in this scope
+     void color_to_stream(std::ostream& s, Color::Enum code) {
+                                        ^
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:4418:55: error: expected primary-expression before 'code'
+     void color_to_stream(std::ostream& s, Color::Enum code) {
+                                                       ^~~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: In member function 'void doctest::detail::ContextScopeBase::destroy()':
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:4631:31: error: no matching function for call to 'doctest::detail::ContextScopeBase::stringify(std::__1::ostringstream*)'
+             this->stringify(&s);
+                               ^
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:886:18: note: candidate: 'virtual void doctest::IContextScope::stringify(std::ostream*) const'
+     virtual void stringify(std::ostream*) const = 0;
+                  ^~~~~~~~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:886:18: note:   no known conversion for argument 1 from 'std::__1::ostringstream*' {aka 'std::__1::basic_ostringstream<char>*'} to 'std::ostream*' {aka 'std::basic_ostream<char, std::char_traits<char> >*'}
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: At global scope:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5067:24: error: reference to 'ostream' is ambiguous
+         void encodeTo( std::ostream& os ) const;
+                        ^~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ios:215,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:138,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:184,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/iosfwd:161:38: note: candidates are: 'typedef class std::__1::basic_ostream<char> std::__1::ostream'
+ typedef basic_ostream<char>          ostream;
+                                      ^~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:531:48: note:                 'typedef class std::basic_ostream<char, std::char_traits<char> > std::ostream'
+ typedef basic_ostream<char, char_traits<char>> ostream; // NOLINT(modernize-use-using)
+                                                ^~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5067:24: error: 'std::ostream' has not been declared
+         void encodeTo( std::ostream& os ) const;
+                        ^~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5069:16: error: reference to 'ostream' is ambiguous
+         friend std::ostream& operator << ( std::ostream& os, XmlEncode const& xmlEncode );
+                ^~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ios:215,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:138,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:184,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/iosfwd:161:38: note: candidates are: 'typedef class std::__1::basic_ostream<char> std::__1::ostream'
+ typedef basic_ostream<char>          ostream;
+                                      ^~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:531:48: note:                 'typedef class std::basic_ostream<char, std::char_traits<char> > std::ostream'
+ typedef basic_ostream<char, char_traits<char>> ostream; // NOLINT(modernize-use-using)
+                                                ^~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5101:32: error: expected ')' before '&' token
+         XmlWriter( std::ostream& os = std::cout );
+                  ~             ^
+                                )
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5149:9: error: reference to 'ostream' is ambiguous
+         std::ostream& m_os;
+         ^~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ios:215,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:138,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:184,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/iosfwd:161:38: note: candidates are: 'typedef class std::__1::basic_ostream<char> std::__1::ostream'
+ typedef basic_ostream<char>          ostream;
+                                      ^~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:531:48: note:                 'typedef class std::basic_ostream<char, std::char_traits<char> > std::ostream'
+ typedef basic_ostream<char, char_traits<char>> ostream; // NOLINT(modernize-use-using)
+                                                ^~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5187:29: error: variable or field 'hexEscapeChar' declared void
+     void hexEscapeChar(std::ostream& os, unsigned char c) {
+                             ^~~~~~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5187:24: error: reference to 'ostream' is ambiguous
+     void hexEscapeChar(std::ostream& os, unsigned char c) {
+                        ^~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ios:215,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:138,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:184,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/iosfwd:161:38: note: candidates are: 'typedef class std::__1::basic_ostream<char> std::__1::ostream'
+ typedef basic_ostream<char>          ostream;
+                                      ^~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:531:48: note:                 'typedef class std::basic_ostream<char, std::char_traits<char> > std::ostream'
+ typedef basic_ostream<char, char_traits<char>> ostream; // NOLINT(modernize-use-using)
+                                                ^~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5187:38: error: 'os' was not declared in this scope
+     void hexEscapeChar(std::ostream& os, unsigned char c) {
+                                      ^~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5187:38: note: suggested alternative: 'cos'
+     void hexEscapeChar(std::ostream& os, unsigned char c) {
+                                      ^~
+                                      cos
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5187:42: error: expected primary-expression before 'unsigned'
+     void hexEscapeChar(std::ostream& os, unsigned char c) {
+                                          ^~~~~~~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5202:36: error: variable or field 'encodeTo' declared void
+     void XmlEncode::encodeTo( std::ostream& os ) const {
+                                    ^~~~~~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5202:31: error: reference to 'ostream' is ambiguous
+     void XmlEncode::encodeTo( std::ostream& os ) const {
+                               ^~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ios:215,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:138,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:184,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/iosfwd:161:38: note: candidates are: 'typedef class std::__1::basic_ostream<char> std::__1::ostream'
+ typedef basic_ostream<char>          ostream;
+                                      ^~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:531:48: note:                 'typedef class std::basic_ostream<char, std::char_traits<char> > std::ostream'
+ typedef basic_ostream<char, char_traits<char>> ostream; // NOLINT(modernize-use-using)
+                                                ^~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5202:45: error: 'os' was not declared in this scope
+     void XmlEncode::encodeTo( std::ostream& os ) const {
+                                             ^~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5202:45: note: suggested alternative: 'cos'
+     void XmlEncode::encodeTo( std::ostream& os ) const {
+                                             ^~
+                                             cos
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5296:5: error: reference to 'ostream' is ambiguous
+     std::ostream& operator << ( std::ostream& os, XmlEncode const& xmlEncode ) {
+     ^~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ios:215,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:138,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:184,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/iosfwd:161:38: note: candidates are: 'typedef class std::__1::basic_ostream<char> std::__1::ostream'
+ typedef basic_ostream<char>          ostream;
+                                      ^~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:531:48: note:                 'typedef class std::basic_ostream<char, std::char_traits<char> > std::ostream'
+ typedef basic_ostream<char, char_traits<char>> ostream; // NOLINT(modernize-use-using)
+                                                ^~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5329:25: error: expected constructor, destructor, or type conversion before '(' token
+     XmlWriter::XmlWriter( std::ostream& os ) : m_os( os )
+                         ^
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: In member function 'doctest::{anonymous}::XmlWriter& doctest::{anonymous}::XmlWriter::startElement(const string&)':
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5342:9: error: 'm_os' was not declared in this scope
+         m_os << m_indent << '<' << name;
+         ^~~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5342:9: note: suggested alternative: 'cos'
+         m_os << m_indent << '<' << name;
+         ^~~~
+         cos
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: In member function 'doctest::{anonymous}::XmlWriter& doctest::{anonymous}::XmlWriter::endElement()':
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5359:13: error: 'm_os' was not declared in this scope
+             m_os << "/>";
+             ^~~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5359:13: note: suggested alternative: 'cos'
+             m_os << "/>";
+             ^~~~
+             cos
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5363:13: error: 'm_os' was not declared in this scope
+             m_os << m_indent << "</" << m_tags.back() << ">";
+             ^~~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5363:13: note: suggested alternative: 'cos'
+             m_os << m_indent << "</" << m_tags.back() << ">";
+             ^~~~
+             cos
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5365:9: error: 'm_os' was not declared in this scope
+         m_os << std::endl;
+         ^~~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5365:9: note: suggested alternative: 'cos'
+         m_os << std::endl;
+         ^~~~
+         cos
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: In member function 'doctest::{anonymous}::XmlWriter& doctest::{anonymous}::XmlWriter::writeAttribute(const string&, const string&)':
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5372:13: error: 'm_os' was not declared in this scope
+             m_os << ' ' << name << "=\"" << XmlEncode( attribute, XmlEncode::ForAttributes ) << '"';
+             ^~~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5372:13: note: suggested alternative: 'cos'
+             m_os << ' ' << name << "=\"" << XmlEncode( attribute, XmlEncode::ForAttributes ) << '"';
+             ^~~~
+             cos
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: In member function 'doctest::{anonymous}::XmlWriter& doctest::{anonymous}::XmlWriter::writeAttribute(const string&, const char*)':
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5378:13: error: 'm_os' was not declared in this scope
+             m_os << ' ' << name << "=\"" << XmlEncode( attribute, XmlEncode::ForAttributes ) << '"';
+             ^~~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5378:13: note: suggested alternative: 'cos'
+             m_os << ' ' << name << "=\"" << XmlEncode( attribute, XmlEncode::ForAttributes ) << '"';
+             ^~~~
+             cos
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: In member function 'doctest::{anonymous}::XmlWriter& doctest::{anonymous}::XmlWriter::writeAttribute(const string&, bool)':
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5383:9: error: 'm_os' was not declared in this scope
+         m_os << ' ' << name << "=\"" << ( attribute ? "true" : "false" ) << '"';
+         ^~~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5383:9: note: suggested alternative: 'cos'
+         m_os << ' ' << name << "=\"" << ( attribute ? "true" : "false" ) << '"';
+         ^~~~
+         cos
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: In member function 'doctest::{anonymous}::XmlWriter& doctest::{anonymous}::XmlWriter::writeText(const string&, bool)':
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5392:17: error: 'm_os' was not declared in this scope
+                 m_os << m_indent;
+                 ^~~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5392:17: note: suggested alternative: 'cos'
+                 m_os << m_indent;
+                 ^~~~
+                 cos
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5393:13: error: 'm_os' was not declared in this scope
+             m_os << XmlEncode( text );
+             ^~~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5393:13: note: suggested alternative: 'cos'
+             m_os << XmlEncode( text );
+             ^~~~
+             cos
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: In member function 'void doctest::{anonymous}::XmlWriter::ensureTagClosed()':
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5418:13: error: 'm_os' was not declared in this scope
+             m_os << ">" << std::endl;
+             ^~~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5418:13: note: suggested alternative: 'cos'
+             m_os << ">" << std::endl;
+             ^~~~
+             cos
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: In member function 'void doctest::{anonymous}::XmlWriter::writeDeclaration()':
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5424:9: error: 'm_os' was not declared in this scope
+         m_os << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+         ^~~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5424:9: note: suggested alternative: 'cos'
+         m_os << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+         ^~~~
+         cos
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: In member function 'void doctest::{anonymous}::XmlWriter::newlineIfNecessary()':
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5429:13: error: 'm_os' was not declared in this scope
+             m_os << std::endl;
+             ^~~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5429:13: note: suggested alternative: 'cos'
+             m_os << std::endl;
+             ^~~~
+             cos
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: In constructor 'doctest::{anonymous}::XmlReporter::XmlReporter(const doctest::ContextOptions&)':
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5451:25: error: no matching function for call to 'doctest::{anonymous}::XmlWriter::XmlWriter(std::ostream&)'
+                 , opt(co) {}
+                         ^
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5107:9: note: candidate: 'doctest::{anonymous}::XmlWriter::XmlWriter(const doctest::{anonymous}::XmlWriter&)' <deleted>
+         XmlWriter( XmlWriter const& ) = delete;
+         ^~~~~~~~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5107:9: note:   no known conversion for argument 1 from 'std::ostream' {aka 'std::basic_ostream<char, std::char_traits<char> >'} to 'const doctest::{anonymous}::XmlWriter&'
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: In member function 'void doctest::{anonymous}::XmlReporter::log_contexts()':
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5459:47: error: no matching function for call to 'doctest::IContextScope::stringify(std::__1::stringstream*) const'
+                     contexts[i]->stringify(&ss);
+                                               ^
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:886:18: note: candidate: 'virtual void doctest::IContextScope::stringify(std::ostream*) const'
+     virtual void stringify(std::ostream*) const = 0;
+                  ^~~~~~~~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:886:18: note:   no known conversion for argument 1 from 'std::__1::stringstream*' {aka 'std::__1::basic_stringstream<char>*'} to 'std::ostream*' {aka 'std::basic_ostream<char, std::char_traits<char> >*'}
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: At global scope:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5677:45: error: variable or field 'fulltext_log_assert_to_stream' declared void
+     void fulltext_log_assert_to_stream(std::ostream& s, const AssertData& rb) {
+                                             ^~~~~~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5677:40: error: reference to 'ostream' is ambiguous
+     void fulltext_log_assert_to_stream(std::ostream& s, const AssertData& rb) {
+                                        ^~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ios:215,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:138,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:184,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/iosfwd:161:38: note: candidates are: 'typedef class std::__1::basic_ostream<char> std::__1::ostream'
+ typedef basic_ostream<char>          ostream;
+                                      ^~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:531:48: note:                 'typedef class std::basic_ostream<char, std::char_traits<char> > std::ostream'
+ typedef basic_ostream<char, char_traits<char>> ostream; // NOLINT(modernize-use-using)
+                                                ^~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5677:54: error: 's' was not declared in this scope
+     void fulltext_log_assert_to_stream(std::ostream& s, const AssertData& rb) {
+                                                      ^
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5677:57: error: expected primary-expression before 'const'
+     void fulltext_log_assert_to_stream(std::ostream& s, const AssertData& rb) {
+                                                         ^~~~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: In constructor 'doctest::{anonymous}::JUnitReporter::JUnitReporter(const doctest::ContextOptions&)':
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5825:25: error: no matching function for call to 'doctest::{anonymous}::XmlWriter::XmlWriter(std::ostream&)'
+                 , opt(co) {}
+                         ^
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5107:9: note: candidate: 'doctest::{anonymous}::XmlWriter::XmlWriter(const doctest::{anonymous}::XmlWriter&)' <deleted>
+         XmlWriter( XmlWriter const& ) = delete;
+         ^~~~~~~~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5107:9: note:   no known conversion for argument 1 from 'std::ostream' {aka 'std::basic_ostream<char, std::char_traits<char> >'} to 'const doctest::{anonymous}::XmlWriter&'
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: In member function 'virtual void doctest::{anonymous}::JUnitReporter::log_assert(const doctest::AssertData&)':
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5929:13: error: 'fulltext_log_assert_to_stream' was not declared in this scope
+             fulltext_log_assert_to_stream(os, rb);
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: In member function 'void doctest::{anonymous}::JUnitReporter::log_contexts(std::__1::ostringstream&)':
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5961:46: error: no matching function for call to 'doctest::IContextScope::stringify(std::__1::ostringstream*) const'
+                     contexts[i]->stringify(&s);
+                                              ^
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:886:18: note: candidate: 'virtual void doctest::IContextScope::stringify(std::ostream*) const'
+     virtual void stringify(std::ostream*) const = 0;
+                  ^~~~~~~~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:886:18: note:   no known conversion for argument 1 from 'std::__1::ostringstream*' {aka 'std::__1::basic_ostringstream<char>*'} to 'std::ostream*' {aka 'std::basic_ostream<char, std::char_traits<char> >*'}
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: At global scope:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5977:5: error: reference to 'ostream' is ambiguous
+     std::ostream& operator<<(std::ostream& out, const Whitespace& ws) {
+     ^~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ios:215,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:138,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:184,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/iosfwd:161:38: note: candidates are: 'typedef class std::__1::basic_ostream<char> std::__1::ostream'
+ typedef basic_ostream<char>          ostream;
+                                      ^~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:531:48: note:                 'typedef class std::basic_ostream<char, std::char_traits<char> > std::ostream'
+ typedef basic_ostream<char, char_traits<char>> ostream; // NOLINT(modernize-use-using)
+                                                ^~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5985:9: error: reference to 'ostream' is ambiguous
+         std::ostream&                 s;
+         ^~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ios:215,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:138,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:184,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/iosfwd:161:38: note: candidates are: 'typedef class std::__1::basic_ostream<char> std::__1::ostream'
+ typedef basic_ostream<char>          ostream;
+                                      ^~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:531:48: note:                 'typedef class std::basic_ostream<char, std::char_traits<char> > std::ostream'
+ typedef basic_ostream<char, char_traits<char>> ostream; // NOLINT(modernize-use-using)
+                                                ^~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5999:51: error: reference to 'ostream' is ambiguous
+         ConsoleReporter(const ContextOptions& co, std::ostream& ostr)
+                                                   ^~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ios:215,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:138,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:184,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/iosfwd:161:38: note: candidates are: 'typedef class std::__1::basic_ostream<char> std::__1::ostream'
+ typedef basic_ostream<char>          ostream;
+                                      ^~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:531:48: note:                 'typedef class std::basic_ostream<char, std::char_traits<char> > std::ostream'
+ typedef basic_ostream<char, char_traits<char>> ostream; // NOLINT(modernize-use-using)
+                                                ^~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5999:51: error: 'std::ostream' has not been declared
+         ConsoleReporter(const ContextOptions& co, std::ostream& ostr)
+                                                   ^~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: In constructor 'doctest::{anonymous}::ConsoleReporter::ConsoleReporter(const doctest::ContextOptions&)':
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5996:19: error: class 'doctest::{anonymous}::ConsoleReporter' does not have any field named 's'
+                 : s(*co.cout)
+                   ^
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: In constructor 'doctest::{anonymous}::ConsoleReporter::ConsoleReporter(const doctest::ContextOptions&, int&)':
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6000:19: error: class 'doctest::{anonymous}::ConsoleReporter' does not have any field named 's'
+                 : s(ostr)
+                   ^
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: In member function 'void doctest::{anonymous}::ConsoleReporter::separator_to_stream()':
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6008:13: error: 's' was not declared in this scope
+             s << Color::Yellow
+             ^
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: In member function 'void doctest::{anonymous}::ConsoleReporter::successOrFailColoredStringToStream(bool, doctest::assertType::Enum, const char*)':
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6027:13: error: 's' was not declared in this scope
+             s << getSuccessOrFailColor(success, at)
+             ^
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: In member function 'void doctest::{anonymous}::ConsoleReporter::log_contexts()':
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6036:17: error: 's' was not declared in this scope
+                 s << Color::None << "  logged: ";
+                 ^
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6044:13: error: 's' was not declared in this scope
+             s << "\n";
+             ^
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: In member function 'virtual void doctest::{anonymous}::ConsoleReporter::file_line_to_stream(const char*, int, const char*)':
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6050:13: error: 's' was not declared in this scope
+             s << Color::LightGrey << skipPathFromFilename(file) << (opt.gnu_file_line ? ":" : "(")
+             ^
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: In member function 'void doctest::{anonymous}::ConsoleReporter::logTestStart()':
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6062:17: error: 's' was not declared in this scope
+                 s << Color::Yellow << "DESCRIPTION: " << Color::None << tc->m_description << "\n";
+                 ^
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6064:17: error: 's' was not declared in this scope
+                 s << Color::Yellow << "TEST SUITE: " << Color::None << tc->m_test_suite << "\n";
+                 ^
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6066:17: error: 's' was not declared in this scope
+                 s << Color::Yellow << "TEST CASE:  ";
+                 ^
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6067:13: error: 's' was not declared in this scope
+             s << Color::None << tc->m_name << "\n";
+             ^
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: In member function 'void doctest::{anonymous}::ConsoleReporter::printVersion()':
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6089:17: error: 's' was not declared in this scope
+                 s << Color::Cyan << "[doctest] " << Color::None << "doctest version is \""
+                 ^
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: In member function 'void doctest::{anonymous}::ConsoleReporter::printIntro()':
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6096:17: error: 's' was not declared in this scope
+                 s << Color::Cyan << "[doctest] " << Color::None
+                 ^
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: In member function 'void doctest::{anonymous}::ConsoleReporter::printHelp()':
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6105:13: error: 's' was not declared in this scope
+             s << Color::Cyan << "[doctest]\n" << Color::None;
+             ^
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: In lambda function:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6224:21: error: 's' was not declared in this scope
+                     s << Color::Cyan << "[doctest] " << Color::None << "listing all registered " << type << "\n";
+                     ^
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: In member function 'virtual void doctest::{anonymous}::ConsoleReporter::report_query(const doctest::QueryData&)':
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6247:21: error: 's' was not declared in this scope
+                     s << Color::Cyan << "[doctest] " << Color::None
+                     ^
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6253:21: error: 's' was not declared in this scope
+                     s << Color::None << in.data[i]->m_name << "\n";
+                     ^
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6257:17: error: 's' was not declared in this scope
+                 s << Color::Cyan << "[doctest] " << Color::None
+                 ^
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6262:17: error: 's' was not declared in this scope
+                 s << Color::Cyan << "[doctest] " << Color::None << "listing all test suites\n";
+                 ^
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: In member function 'virtual void doctest::{anonymous}::ConsoleReporter::test_run_end(const doctest::TestRunStats&)':
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6289:13: error: 's' was not declared in this scope
+             s << std::dec;
+             ^
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: In member function 'virtual void doctest::{anonymous}::ConsoleReporter::test_case_end(const doctest::CurrentTestCaseStats&)':
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6341:17: error: 's' was not declared in this scope
+                 s << Color::None << std::setprecision(6) << std::fixed << st.seconds
+                 ^
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6341:17: note: suggested alternative: 'st'
+                 s << Color::None << std::setprecision(6) << std::fixed << st.seconds
+                 ^
+                 st
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6345:17: error: 's' was not declared in this scope
+                 s << Color::Red << "Test case exceeded time limit of " << std::setprecision(6)
+                 ^
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6345:17: note: suggested alternative: 'st'
+                 s << Color::Red << "Test case exceeded time limit of " << std::setprecision(6)
+                 ^
+                 st
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6349:17: error: 's' was not declared in this scope
+                 s << Color::Red << "Should have failed but didn't! Marking it as failed!\n";
+                 ^
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6349:17: note: suggested alternative: 'st'
+                 s << Color::Red << "Should have failed but didn't! Marking it as failed!\n";
+                 ^
+                 st
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6351:17: error: 's' was not declared in this scope
+                 s << Color::Yellow << "Failed as expected so marking it as not failed\n";
+                 ^
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6351:17: note: suggested alternative: 'st'
+                 s << Color::Yellow << "Failed as expected so marking it as not failed\n";
+                 ^
+                 st
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6353:17: error: 's' was not declared in this scope
+                 s << Color::Yellow << "Allowed to fail so marking it as not failed\n";
+                 ^
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6353:17: note: suggested alternative: 'st'
+                 s << Color::Yellow << "Allowed to fail so marking it as not failed\n";
+                 ^
+                 st
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6355:17: error: 's' was not declared in this scope
+                 s << Color::Red << "Didn't fail exactly " << tc->m_expected_failures
+                 ^
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6355:17: note: suggested alternative: 'st'
+                 s << Color::Red << "Didn't fail exactly " << tc->m_expected_failures
+                 ^
+                 st
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6358:17: error: 's' was not declared in this scope
+                 s << Color::Yellow << "Failed exactly " << tc->m_expected_failures
+                 ^
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6358:17: note: suggested alternative: 'st'
+                 s << Color::Yellow << "Failed exactly " << tc->m_expected_failures
+                 ^
+                 st
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6362:17: error: 's' was not declared in this scope
+                 s << Color::Red << "Aborting - too many failed asserts!\n";
+                 ^
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6362:17: note: suggested alternative: 'st'
+                 s << Color::Red << "Aborting - too many failed asserts!\n";
+                 ^
+                 st
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6364:13: error: 's' was not declared in this scope
+             s << Color::None; // lgtm [cpp/useless-expression]
+             ^
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6364:13: note: suggested alternative: 'st'
+             s << Color::None; // lgtm [cpp/useless-expression]
+             ^
+             st
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: In member function 'virtual void doctest::{anonymous}::ConsoleReporter::test_case_exception(const doctest::TestCaseException&)':
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6377:13: error: 's' was not declared in this scope
+             s << Color::Red << (e.is_crash ? "test case CRASHED: " : "test case THREW exception: ")
+             ^
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: In member function 'virtual void doctest::{anonymous}::ConsoleReporter::log_assert(const doctest::AssertData&)':
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6414:43: error: 's' was not declared in this scope
+             fulltext_log_assert_to_stream(s, rb);
+                                           ^
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6414:13: error: 'fulltext_log_assert_to_stream' was not declared in this scope
+             fulltext_log_assert_to_stream(s, rb);
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6414:13: note: suggested alternative: 'file_line_to_stream'
+             fulltext_log_assert_to_stream(s, rb);
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             file_line_to_stream
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: In member function 'virtual void doctest::{anonymous}::ConsoleReporter::log_message(const doctest::MessageData&)':
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6428:13: error: 's' was not declared in this scope
+             s << getSuccessOrFailColor(false, mb.m_severity)
+             ^
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: At global scope:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6796:28: error: variable or field 'setCout' declared void
+ void Context::setCout(std::ostream* out) { p->cout = out; }
+                            ^~~~~~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6796:23: error: reference to 'ostream' is ambiguous
+ void Context::setCout(std::ostream* out) { p->cout = out; }
+                       ^~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ios:215,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:138,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:184,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/iosfwd:161:38: note: candidates are: 'typedef class std::__1::basic_ostream<char> std::__1::ostream'
+ typedef basic_ostream<char>          ostream;
+                                      ^~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:531:48: note:                 'typedef class std::basic_ostream<char, std::char_traits<char> > std::ostream'
+ typedef basic_ostream<char, char_traits<char>> ostream; // NOLINT(modernize-use-using)
+                                                ^~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6796:37: error: 'out' was not declared in this scope
+ void Context::setCout(std::ostream* out) { p->cout = out; }
+                                     ^~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6798:43: error: reference to 'ostream' is ambiguous
+ static class DiscardOStream : public std::ostream
+                                           ^~~~~~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ios:215,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:138,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:184,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/iosfwd:161:38: note: candidates are: 'typedef class std::__1::basic_ostream<char> std::__1::ostream'
+ typedef basic_ostream<char>          ostream;
+                                      ^~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:531:48: note:                 'typedef class std::basic_ostream<char, std::char_traits<char> > std::ostream'
+ typedef basic_ostream<char, char_traits<char>> ostream; // NOLINT(modernize-use-using)
+                                                ^~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: In constructor 'doctest::DiscardOStream::DiscardOStream()':
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6818:20: error: reference to 'ostream' is ambiguous
+             : std::ostream(&discardBuf) {}
+                    ^~~~~~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ios:215,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:138,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:184,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/iosfwd:161:38: note: candidates are: 'typedef class std::__1::basic_ostream<char> std::__1::ostream'
+ typedef basic_ostream<char>          ostream;
+                                      ^~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:531:48: note:                 'typedef class std::basic_ostream<char, std::char_traits<char> > std::ostream'
+ typedef basic_ostream<char, char_traits<char>> ostream; // NOLINT(modernize-use-using)
+                                                ^~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6818:27: error: expected '{' before '(' token
+             : std::ostream(&discardBuf) {}
+                           ^
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: In member function 'int doctest::Context::run()':
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6837:24: error: cannot convert 'doctest::DiscardOStream*' to 'std::ostream*' {aka 'std::basic_ostream<char, std::char_traits<char> >*'} in assignment
+             p->cout = &discardOut;
+                        ^~~~~~~~~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6841:24: error: cannot convert 'std::__1::fstream*' {aka 'std::__1::basic_fstream<char>*'} to 'std::ostream*' {aka 'std::basic_ostream<char, std::char_traits<char> >*'} in assignment
+             p->cout = &fstr;
+                        ^~~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:6845:29: error: cannot convert 'std::__1::ostream*' {aka 'std::__1::basic_ostream<char>*'} to 'std::ostream*' {aka 'std::basic_ostream<char, std::char_traits<char> >*'} in assignment
+             p->cout = &std::cout;
+                             ^~~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: In instantiation of 'doctest::{anonymous}::XmlWriter& doctest::{anonymous}::XmlWriter::writeAttribute(const string&, const T&) [with T = doctest::String; std::__1::string = std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >]':
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5614:54:   required from here
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5125:17: error: no match for 'operator<<' (operand types are 'std::__1::stringstream' {aka 'std::__1::basic_stringstream<char>'} and 'const doctest::String')
+             rss << attribute;
+             ~~~~^~~~~~~~~~~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:184,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:195:20: note: candidate: 'std::__1::basic_ostream<_CharT, _Traits>& std::__1::basic_ostream<_CharT, _Traits>::operator<<(std::__1::basic_ostream<_CharT, _Traits>& (*)(std::__1::basic_ostream<_CharT, _Traits>&)) [with _CharT = char; _Traits = std::__1::char_traits<char>]'
+     basic_ostream& operator<<(basic_ostream& (*__pf)(basic_ostream&))
+                    ^~~~~~~~
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:195:20: note:   no known conversion for argument 1 from 'const doctest::String' to 'std::__1::basic_ostream<char>& (*)(std::__1::basic_ostream<char>&)'
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:199:20: note: candidate: 'std::__1::basic_ostream<_CharT, _Traits>& std::__1::basic_ostream<_CharT, _Traits>::operator<<(std::__1::basic_ios<_CharT, _Traits>& (*)(std::__1::basic_ios<_CharT, _Traits>&)) [with _CharT = char; _Traits = std::__1::char_traits<char>]'
+     basic_ostream& operator<<(basic_ios<char_type, traits_type>&
+                    ^~~~~~~~
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:199:20: note:   no known conversion for argument 1 from 'const doctest::String' to 'std::__1::basic_ios<char>& (*)(std::__1::basic_ios<char>&)'
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:204:20: note: candidate: 'std::__1::basic_ostream<_CharT, _Traits>& std::__1::basic_ostream<_CharT, _Traits>::operator<<(std::__1::ios_base& (*)(std::__1::ios_base&)) [with _CharT = char; _Traits = std::__1::char_traits<char>]'
+     basic_ostream& operator<<(ios_base& (*__pf)(ios_base&))
+                    ^~~~~~~~
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:204:20: note:   no known conversion for argument 1 from 'const doctest::String' to 'std::__1::ios_base& (*)(std::__1::ios_base&)'
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:369:1: note: candidate: 'std::__1::basic_ostream<_CharT, _Traits>& std::__1::basic_ostream<_CharT, _Traits>::operator<<(bool) [with _CharT = char; _Traits = std::__1::char_traits<char>]'
+ basic_ostream<_CharT, _Traits>::operator<<(bool __n)
+ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:369:1: note:   no known conversion for argument 1 from 'const doctest::String' to 'bool'
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:395:1: note: candidate: 'std::__1::basic_ostream<_CharT, _Traits>& std::__1::basic_ostream<_CharT, _Traits>::operator<<(short int) [with _CharT = char; _Traits = std::__1::char_traits<char>]'
+ basic_ostream<_CharT, _Traits>::operator<<(short __n)
+ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:395:1: note:   no known conversion for argument 1 from 'const doctest::String' to 'short int'
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:425:1: note: candidate: 'std::__1::basic_ostream<_CharT, _Traits>& std::__1::basic_ostream<_CharT, _Traits>::operator<<(short unsigned int) [with _CharT = char; _Traits = std::__1::char_traits<char>]'
+ basic_ostream<_CharT, _Traits>::operator<<(unsigned short __n)
+ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:425:1: note:   no known conversion for argument 1 from 'const doctest::String' to 'short unsigned int'
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:451:1: note: candidate: 'std::__1::basic_ostream<_CharT, _Traits>& std::__1::basic_ostream<_CharT, _Traits>::operator<<(int) [with _CharT = char; _Traits = std::__1::char_traits<char>]'
+ basic_ostream<_CharT, _Traits>::operator<<(int __n)
+ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:451:1: note:   no known conversion for argument 1 from 'const doctest::String' to 'int'
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:481:1: note: candidate: 'std::__1::basic_ostream<_CharT, _Traits>& std::__1::basic_ostream<_CharT, _Traits>::operator<<(unsigned int) [with _CharT = char; _Traits = std::__1::char_traits<char>]'
+ basic_ostream<_CharT, _Traits>::operator<<(unsigned int __n)
+ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:481:1: note:   no known conversion for argument 1 from 'const doctest::String' to 'unsigned int'
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:507:1: note: candidate: 'std::__1::basic_ostream<_CharT, _Traits>& std::__1::basic_ostream<_CharT, _Traits>::operator<<(long int) [with _CharT = char; _Traits = std::__1::char_traits<char>]'
+ basic_ostream<_CharT, _Traits>::operator<<(long __n)
+ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:507:1: note:   no known conversion for argument 1 from 'const doctest::String' to 'long int'
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:533:1: note: candidate: 'std::__1::basic_ostream<_CharT, _Traits>& std::__1::basic_ostream<_CharT, _Traits>::operator<<(long unsigned int) [with _CharT = char; _Traits = std::__1::char_traits<char>]'
+ basic_ostream<_CharT, _Traits>::operator<<(unsigned long __n)
+ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:533:1: note:   no known conversion for argument 1 from 'const doctest::String' to 'long unsigned int'
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:559:1: note: candidate: 'std::__1::basic_ostream<_CharT, _Traits>& std::__1::basic_ostream<_CharT, _Traits>::operator<<(long long int) [with _CharT = char; _Traits = std::__1::char_traits<char>]'
+ basic_ostream<_CharT, _Traits>::operator<<(long long __n)
+ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:559:1: note:   no known conversion for argument 1 from 'const doctest::String' to 'long long int'
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:585:1: note: candidate: 'std::__1::basic_ostream<_CharT, _Traits>& std::__1::basic_ostream<_CharT, _Traits>::operator<<(long long unsigned int) [with _CharT = char; _Traits = std::__1::char_traits<char>]'
+ basic_ostream<_CharT, _Traits>::operator<<(unsigned long long __n)
+ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:585:1: note:   no known conversion for argument 1 from 'const doctest::String' to 'long long unsigned int'
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:611:1: note: candidate: 'std::__1::basic_ostream<_CharT, _Traits>& std::__1::basic_ostream<_CharT, _Traits>::operator<<(float) [with _CharT = char; _Traits = std::__1::char_traits<char>]'
+ basic_ostream<_CharT, _Traits>::operator<<(float __n)
+ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:611:1: note:   no known conversion for argument 1 from 'const doctest::String' to 'float'
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:637:1: note: candidate: 'std::__1::basic_ostream<_CharT, _Traits>& std::__1::basic_ostream<_CharT, _Traits>::operator<<(double) [with _CharT = char; _Traits = std::__1::char_traits<char>]'
+ basic_ostream<_CharT, _Traits>::operator<<(double __n)
+ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:637:1: note:   no known conversion for argument 1 from 'const doctest::String' to 'double'
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:663:1: note: candidate: 'std::__1::basic_ostream<_CharT, _Traits>& std::__1::basic_ostream<_CharT, _Traits>::operator<<(long double) [with _CharT = char; _Traits = std::__1::char_traits<char>]'
+ basic_ostream<_CharT, _Traits>::operator<<(long double __n)
+ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:663:1: note:   no known conversion for argument 1 from 'const doctest::String' to 'long double'
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:689:1: note: candidate: 'std::__1::basic_ostream<_CharT, _Traits>& std::__1::basic_ostream<_CharT, _Traits>::operator<<(const void*) [with _CharT = char; _Traits = std::__1::char_traits<char>]'
+ basic_ostream<_CharT, _Traits>::operator<<(const void* __n)
+ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:689:1: note:   no known conversion for argument 1 from 'const doctest::String' to 'const void*'
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:317:1: note: candidate: 'std::__1::basic_ostream<_CharT, _Traits>& std::__1::basic_ostream<_CharT, _Traits>::operator<<(std::__1::basic_streambuf<_CharT, _Traits>*) [with _CharT = char; _Traits = std::__1::char_traits<char>]'
+ basic_ostream<_CharT, _Traits>::operator<<(basic_streambuf<char_type, traits_type>* __sb)
+ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:317:1: note:   no known conversion for argument 1 from 'const doctest::String' to 'std::__1::basic_streambuf<char>*'
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:662:40: note: candidate: 'std::ostream& doctest::operator<<(std::ostream&, const doctest::String&)'
+ friend DOCTEST_INTERFACE std::ostream& operator<<(std::ostream& s, const String& in);
+                                        ^~~~~~~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:662:40: note:   no known conversion for argument 1 from 'std::__1::stringstream' {aka 'std::__1::basic_stringstream<char>'} to 'std::ostream&' {aka 'std::basic_ostream<char, std::char_traits<char> >&'}
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:184,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:1070:1: note: candidate: 'template<class _CharT, class _Traits, class _Yp> std::__1::basic_ostream<_CharT, _Traits>& std::__1::operator<<(std::__1::basic_ostream<_CharT, _Traits>&, const std::__1::shared_ptr<_Yp>&)'
+ operator<<(basic_ostream<_CharT, _Traits>& __os, shared_ptr<_Yp> const& __p)
+ ^~~~~~~~
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:1070:1: note:   template argument deduction/substitution failed:
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5125:17: note:   'const doctest::String' is not derived from 'const std::__1::shared_ptr<_Yp>'
+             rss << attribute;
+             ~~~~^~~~~~~~~~~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:184,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:1045:1: note: candidate: 'template<class _CharT, class _Traits, class _Allocator> std::__1::basic_ostream<_CharT, _Traits>& std::__1::operator<<(std::__1::basic_ostream<_CharT, _Traits>&, const std::__1::basic_string<_CharT, _Traits, _Allocator>&)'
+ operator<<(basic_ostream<_CharT, _Traits>& __os,
+ ^~~~~~~~
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:1045:1: note:   template argument deduction/substitution failed:
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5125:17: note:   'const doctest::String' is not derived from 'const std::__1::basic_string<_CharT, _Traits, _Allocator>'
+             rss << attribute;
+             ~~~~^~~~~~~~~~~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:184,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:1089:1: note: candidate: 'template<class _CharT, class _Traits, long unsigned int _Size> std::__1::basic_ostream<_CharT, _Traits>& std::__1::operator<<(std::__1::basic_ostream<_CharT, _Traits>&, const std::__1::bitset<_Size>&)'
+ operator<<(basic_ostream<_CharT, _Traits>& __os, const bitset<_Size>& __x)
+ ^~~~~~~~
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:1089:1: note:   template argument deduction/substitution failed:
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5125:17: note:   'const doctest::String' is not derived from 'const std::__1::bitset<_Size>'
+             rss << attribute;
+             ~~~~^~~~~~~~~~~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:184,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:749:1: note: candidate: 'template<class _CharT, class _Traits> std::__1::basic_ostream<_CharT, _Traits>& std::__1::operator<<(std::__1::basic_ostream<_CharT, _Traits>&, _CharT)'
+ operator<<(basic_ostream<_CharT, _Traits>& __os, _CharT __c)
+ ^~~~~~~~
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:749:1: note:   template argument deduction/substitution failed:
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5125:17: note:   deduced conflicting types for parameter '_CharT' ('char' and 'doctest::String')
+             rss << attribute;
+             ~~~~^~~~~~~~~~~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:184,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:756:1: note: candidate: 'template<class _CharT, class _Traits> std::__1::basic_ostream<_CharT, _Traits>& std::__1::operator<<(std::__1::basic_ostream<_CharT, _Traits>&, char)'
+ operator<<(basic_ostream<_CharT, _Traits>& __os, char __cn)
+ ^~~~~~~~
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:756:1: note:   template argument deduction/substitution failed:
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5125:17: note:   cannot convert 'attribute' (type 'const doctest::String') to type 'char'
+             rss << attribute;
+             ~~~~^~~~~~~~~~~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:184,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:789:1: note: candidate: 'template<class _Traits> std::__1::basic_ostream<char, _Traits>& std::__1::operator<<(std::__1::basic_ostream<char, _Traits>&, char)'
+ operator<<(basic_ostream<char, _Traits>& __os, char __c)
+ ^~~~~~~~
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:789:1: note:   template argument deduction/substitution failed:
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5125:17: note:   cannot convert 'attribute' (type 'const doctest::String') to type 'char'
+             rss << attribute;
+             ~~~~^~~~~~~~~~~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:184,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:796:1: note: candidate: 'template<class _Traits> std::__1::basic_ostream<char, _Traits>& std::__1::operator<<(std::__1::basic_ostream<char, _Traits>&, signed char)'
+ operator<<(basic_ostream<char, _Traits>& __os, signed char __c)
+ ^~~~~~~~
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:796:1: note:   template argument deduction/substitution failed:
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5125:17: note:   cannot convert 'attribute' (type 'const doctest::String') to type 'signed char'
+             rss << attribute;
+             ~~~~^~~~~~~~~~~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:184,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:803:1: note: candidate: 'template<class _Traits> std::__1::basic_ostream<char, _Traits>& std::__1::operator<<(std::__1::basic_ostream<char, _Traits>&, unsigned char)'
+ operator<<(basic_ostream<char, _Traits>& __os, unsigned char __c)
+ ^~~~~~~~
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:803:1: note:   template argument deduction/substitution failed:
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5125:17: note:   cannot convert 'attribute' (type 'const doctest::String') to type 'unsigned char'
+             rss << attribute;
+             ~~~~^~~~~~~~~~~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:184,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:810:1: note: candidate: 'template<class _CharT, class _Traits> std::__1::basic_ostream<_CharT, _Traits>& std::__1::operator<<(std::__1::basic_ostream<_CharT, _Traits>&, const _CharT*)'
+ operator<<(basic_ostream<_CharT, _Traits>& __os, const _CharT* __str)
+ ^~~~~~~~
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:810:1: note:   template argument deduction/substitution failed:
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5125:17: note:   mismatched types 'const _CharT*' and 'doctest::String'
+             rss << attribute;
+             ~~~~^~~~~~~~~~~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:184,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:817:1: note: candidate: 'template<class _CharT, class _Traits> std::__1::basic_ostream<_CharT, _Traits>& std::__1::operator<<(std::__1::basic_ostream<_CharT, _Traits>&, const char*)'
+ operator<<(basic_ostream<_CharT, _Traits>& __os, const char* __strn)
+ ^~~~~~~~
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:817:1: note:   template argument deduction/substitution failed:
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5125:17: note:   cannot convert 'attribute' (type 'const doctest::String') to type 'const char*'
+             rss << attribute;
+             ~~~~^~~~~~~~~~~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:184,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:863:1: note: candidate: 'template<class _Traits> std::__1::basic_ostream<char, _Traits>& std::__1::operator<<(std::__1::basic_ostream<char, _Traits>&, const char*)'
+ operator<<(basic_ostream<char, _Traits>& __os, const char* __str)
+ ^~~~~~~~
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:863:1: note:   template argument deduction/substitution failed:
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5125:17: note:   cannot convert 'attribute' (type 'const doctest::String') to type 'const char*'
+             rss << attribute;
+             ~~~~^~~~~~~~~~~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:184,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:870:1: note: candidate: 'template<class _Traits> std::__1::basic_ostream<char, _Traits>& std::__1::operator<<(std::__1::basic_ostream<char, _Traits>&, const signed char*)'
+ operator<<(basic_ostream<char, _Traits>& __os, const signed char* __str)
+ ^~~~~~~~
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:870:1: note:   template argument deduction/substitution failed:
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5125:17: note:   cannot convert 'attribute' (type 'const doctest::String') to type 'const signed char*'
+             rss << attribute;
+             ~~~~^~~~~~~~~~~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:184,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:878:1: note: candidate: 'template<class _Traits> std::__1::basic_ostream<char, _Traits>& std::__1::operator<<(std::__1::basic_ostream<char, _Traits>&, const unsigned char*)'
+ operator<<(basic_ostream<char, _Traits>& __os, const unsigned char* __str)
+ ^~~~~~~~
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:878:1: note:   template argument deduction/substitution failed:
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5125:17: note:   cannot convert 'attribute' (type 'const doctest::String') to type 'const unsigned char*'
+             rss << attribute;
+             ~~~~^~~~~~~~~~~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:184,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:1035:1: note: candidate: 'template<class _Stream, class _Tp> typename std::__1::enable_if<((! std::__1::is_lvalue_reference<_Tp>::value) && std::__1::is_base_of<std::__1::ios_base, _Stream>::value), _Stream&&>::type std::__1::operator<<(_Stream&&, const _Tp&)'
+ operator<<(_Stream&& __os, const _Tp& __x)
+ ^~~~~~~~
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:1035:1: note:   template argument deduction/substitution failed:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream: In substitution of 'template<class _Stream, class _Tp> typename std::__1::enable_if<((! std::__1::is_lvalue_reference<_Tp>::value) && std::__1::is_base_of<std::__1::ios_base, _Stream>::value), _Stream&&>::type std::__1::operator<<(_Stream&&, const _Tp&) [with _Stream = std::__1::basic_stringstream<char>&; _Tp = doctest::String]':
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5125:17:   required from 'doctest::{anonymous}::XmlWriter& doctest::{anonymous}::XmlWriter::writeAttribute(const string&, const T&) [with T = doctest::String; std::__1::string = std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >]'
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5614:54:   required from here
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:1035:1: error: no type named 'type' in 'struct std::__1::enable_if<false, std::__1::basic_stringstream<char>&>'
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h: In instantiation of 'doctest::{anonymous}::XmlWriter& doctest::{anonymous}::XmlWriter::writeAttribute(const string&, const T&) [with T = doctest::String; std::__1::string = std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >]':
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5614:54:   required from here
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:1053:1: note: candidate: 'template<class _CharT, class _Traits> std::__1::basic_ostream<_CharT, _Traits>& std::__1::operator<<(std::__1::basic_ostream<_CharT, _Traits>&, std::__1::basic_string_view<_CharT, _Traits>)'
+ operator<<(basic_ostream<_CharT, _Traits>& __os,
+ ^~~~~~~~
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:1053:1: note:   template argument deduction/substitution failed:
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5125:17: note:   'doctest::String' is not derived from 'std::__1::basic_string_view<_CharT, _Traits>'
+             rss << attribute;
+             ~~~~^~~~~~~~~~~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:184,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:1062:1: note: candidate: 'template<class _CharT, class _Traits> std::__1::basic_ostream<_CharT, _Traits>& std::__1::operator<<(std::__1::basic_ostream<_CharT, _Traits>&, const std::__1::error_code&)'
+ operator<<(basic_ostream<_CharT, _Traits>& __os, const error_code& __ec)
+ ^~~~~~~~
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:1062:1: note:   template argument deduction/substitution failed:
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5125:17: note:   cannot convert 'attribute' (type 'const doctest::String') to type 'const std::__1::error_code&'
+             rss << attribute;
+             ~~~~^~~~~~~~~~~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:184,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:1082:1: note: candidate: 'template<class _CharT, class _Traits, class _Yp, class _Dp> typename std::__1::enable_if<std::__1::is_same<void, typename std::__1::__void_t<decltype ((declval<std::__1::basic_ostream<_CharT, _Traits>&>() << declval<typename std::__1::unique_ptr<_T2, _D2>::pointer>()))>::type>::value, std::__1::basic_ostream<_CharT, _Traits>&>::type std::__1::operator<<(std::__1::basic_ostream<_CharT, _Traits>&, const std::__1::unique_ptr<_T2, _D2>&)'
+ operator<<(basic_ostream<_CharT, _Traits>& __os, unique_ptr<_Yp, _Dp> const& __p)
+ ^~~~~~~~
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/ostream:1082:1: note:   template argument deduction/substitution failed:
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5125:17: note:   'const doctest::String' is not derived from 'const std::__1::unique_ptr<_T2, _D2>'
+             rss << attribute;
+             ~~~~^~~~~~~~~~~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/filesystem:245,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:189,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/iomanip:363:1: note: candidate: 'template<class _CharT, class _Traits, class _MoneyT> std::__1::basic_ostream<_CharT, _Traits>& std::__1::operator<<(std::__1::basic_ostream<_CharT, _Traits>&, const std::__1::__iom_t8<_MoneyT>&)'
+ operator<<(basic_ostream<_CharT, _Traits>& __os, const __iom_t8<_MoneyT>& __x)
+ ^~~~~~~~
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/iomanip:363:1: note:   template argument deduction/substitution failed:
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5125:17: note:   'const doctest::String' is not derived from 'const std::__1::__iom_t8<_MoneyT>'
+             rss << attribute;
+             ~~~~^~~~~~~~~~~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/filesystem:245,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:189,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/iomanip:483:1: note: candidate: 'template<class _CharT, class _Traits> std::__1::basic_ostream<_CharT, _Traits>& std::__1::operator<<(std::__1::basic_ostream<_CharT, _Traits>&, const std::__1::__iom_t10<_CharT>&)'
+ operator<<(basic_ostream<_CharT, _Traits>& __os, const __iom_t10<_CharT>& __x)
+ ^~~~~~~~
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/iomanip:483:1: note:   template argument deduction/substitution failed:
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5125:17: note:   'const doctest::String' is not derived from 'const std::__1::__iom_t10<_CharT>'
+             rss << attribute;
+             ~~~~^~~~~~~~~~~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/filesystem:245,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:189,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/iomanip:573:33: note: candidate: 'template<class _CharT, class _Traits, class _Iter> std::__1::basic_ostream<_CharT, _Traits>& std::__1::operator<<(std::__1::basic_ostream<_CharT, _Traits>&, const std::__1::__quoted_output_proxy<_CharT, _Iter, _Traits>&)'
+ basic_ostream<_CharT, _Traits>& operator<<(
+                                 ^~~~~~~~
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/iomanip:573:33: note:   template argument deduction/substitution failed:
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5125:17: note:   'const doctest::String' is not derived from 'const std::__1::__quoted_output_proxy<_CharT, _Iter, _Traits>'
+             rss << attribute;
+             ~~~~^~~~~~~~~~~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/filesystem:245,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/fstream:189,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3163,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/iomanip:593:33: note: candidate: 'template<class _CharT, class _Traits, class _Allocator> std::__1::basic_ostream<_CharT, _Traits>& std::__1::operator<<(std::__1::basic_ostream<_CharT, _Traits>&, const std::__1::__quoted_proxy<_CharT, _Traits, _Allocator>&)'
+ basic_ostream<_CharT, _Traits>& operator<<(
+                                 ^~~~~~~~
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/iomanip:593:33: note:   template argument deduction/substitution failed:
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5125:17: note:   'const doctest::String' is not derived from 'const std::__1::__quoted_proxy<_CharT, _Traits, _Allocator>'
+             rss << attribute;
+             ~~~~^~~~~~~~~~~~
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:534:30: note: candidate: 'template<class traits> std::basic_ostream<char, traits>& std::operator<<(std::basic_ostream<char, traits>&, const char*)'
+ basic_ostream<char, traits>& operator<<(basic_ostream<char, traits>&, const char*);
+                              ^~~~~~~~
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:534:30: note:   template argument deduction/substitution failed:
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5125:17: note:   'std::__1::stringstream' {aka 'std::__1::basic_stringstream<char>'} is not derived from 'std::basic_ostream<char, traits>'
+             rss << attribute;
+             ~~~~^~~~~~~~~~~~
+In file included from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/math.h:309,
+                 from /home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/cmath:305,
+                 from /home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:3151,
+                 from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/type_traits:4843:3: note: candidate: 'template<class _Integer> constexpr typename std::__1::enable_if<is_integral_v<_Integer>, std::byte>::type std::operator<<(std::byte, _Integer)'
+   operator<< (byte  __lhs, _Integer __shift) noexcept
+   ^~~~~~~~
+/home/paulkruchko/qnx710/target/qnx7/usr/include/c++/v1/type_traits:4843:3: note:   template argument deduction/substitution failed:
+In file included from /home/paulkruchko/foonathan_memory/test/test.cpp:5:
+/home/paulkruchko/fast-dds-on-qnx/build-qnx-deps/foonathan/_deps/doctest-src/doctest/doctest.h:5125:17: note:   cannot convert 'rss' (type 'std::__1::stringstream' {aka 'std::__1::basic_stringstream<char>'}) to type 'std::byte'
+             rss << attribute;
+             ~~~~^~~~~~~~~~~~
+gmake[2]: *** [test/CMakeFiles/foonathan_memory_test.dir/build.make:76: test/CMakeFiles/foonathan_memory_test.dir/test.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:361: test/CMakeFiles/foonathan_memory_test.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

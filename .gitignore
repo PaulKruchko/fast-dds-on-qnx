@@ -53,3 +53,27 @@ dkms.conf
 
 # debug information files
 *.dwo
+
+# build output
+/build/
+/build-*/
+
+# Generated files
+/generated/
+
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env/
+
+/qnx_stage/
+/build-qnx-deps/
+/build-linux-deps
+/build-qnx*/
+/build-linux*/
+

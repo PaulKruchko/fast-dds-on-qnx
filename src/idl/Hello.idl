@@ -1,0 +1,6 @@
+struct HelloMsg
+{
+  unsigned long counter;
+  unsigned long long t_send_ns;
+  string<64> text;
+};
