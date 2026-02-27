@@ -7,11 +7,9 @@
 static void flip_halves(char s[64])
 {
     // Example: "deadbeef" -> "beefdead"
-    // Only flips first 8 chars if length >= 8. Keeps it simple.
     const size_t n = strnlen(s, 63);
     if (n < 2) return;
 
-    // If exactly 8 chars, swap 4+4; otherwise swap halves by n/2.
     size_t half = (n == 8) ? 4 : (n / 2);
 
     char tmp[64] = {0};
@@ -54,8 +52,7 @@ int main(int argc, char** argv)
         }
         else if (rc == 0)
         {
-            // timeout: keep waiting
-            continue;
+            continue; // timeout
         }
         else
         {
