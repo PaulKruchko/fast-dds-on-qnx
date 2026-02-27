@@ -30,20 +30,6 @@ set(SHIM_INC_DIR         ${SRC_ROOT}/shim/include)
 set(SHIM_SRC_DIR         ${SRC_ROOT}/shim/src)
 
 set(IDL_DIR              ${SRC_ROOT}/idl)
-set(IDL_FILE             ${IDL_DIR}/Hello.idl)
-
-# Generated code is kept in-repo per your structure:
-set(GENERATED_DIR        ${REPO_ROOT}/generated)
-
-# Some people like to keep build-time generated artifacts in the build tree;
-# you explicitly want them in ./generated, so we honor that.
-
-# -------------------------
-# Ensure required directories exist
-# -------------------------
-file(MAKE_DIRECTORY ${GENERATED_DIR})
-# Also ensure common build subdirs exist (not strictly necessary, but nice)
-file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR})
 
 # -------------------------
 # Options
@@ -52,56 +38,85 @@ option(IPC_USE_FASTDDS        "Enable Fast DDS backend" ON)
 option(IPC_USE_PPS            "Enable QNX PPS backend (QNX only)" OFF)
 option(FD_SHIM_USE_WAITSET    "Fast DDS shim: WaitSet (else Polling)" ON)
 
-# If you want to force PPS backend on QNX builds you can default it via toolchain/config.
+# If you still see __gxx_personality_v0 on QNX, turn this ON.
+option(QNX_LINK_GCC_S         "On QNX, also link libgcc_s for unwind personality symbols" OFF)
 
 # -------------------------
-# Fast-DDS-Gen integration (IDL -> generated/)
+# IDL selection + generated output directory layout
 # -------------------------
-# We look for a generator executable. Names vary by install:
-# - fastddsgen (newer)
-# - fastddsgen.jar / Fast-DDS-Gen (java invocation)
-# - fastrtpsgen (older ecosystem)
-#
-# Prefer fastddsgen if found.
+set(IDL_FILE "${IDL_DIR}/Hello.idl" CACHE FILEPATH "IDL file to generate Fast DDS types from")
+get_filename_component(IDL_FILE_ABS  "${IDL_FILE}" ABSOLUTE)
+get_filename_component(IDL_FILE_BASE "${IDL_FILE}" NAME_WE)
+
+set(GENERATED_BASE_DIR "${REPO_ROOT}/generated")
+set(GENERATED_DIR      "${GENERATED_BASE_DIR}/${IDL_FILE_BASE}")
+
+set(GENERATED_IDL_DIR_DEFAULT "${GENERATED_DIR}/src/idl")
+
+set(IPCBENCH_GENERATED_IDL_DIR "${GENERATED_IDL_DIR_DEFAULT}" CACHE PATH
+    "Directory containing generated IDL headers/sources (e.g. generated/Hello/src/idl)")
+
+set(IPCBENCH_GEN_BASENAME "${IDL_FILE_BASE}" CACHE STRING
+    "Basename of generated files (e.g. Hello for Hello.hpp/HelloPubSubTypes.hpp)")
+
+file(MAKE_DIRECTORY "${IPCBENCH_GENERATED_IDL_DIR}")
+
+# -------------------------
+# Fast-DDS-Gen integration
+# -------------------------
 find_program(FASTDDSGEN_EXE NAMES fastddsgen fastrtpsgen)
+file(GLOB GEN_CXX_SOURCES "${IPCBENCH_GENERATED_IDL_DIR}/*.cxx")
 
-set(GEN_HELLO_H              ${GENERATED_DIR}/HelloMsg.h)
-set(GEN_HELLO_CXX            ${GENERATED_DIR}/HelloMsg.cxx)
-set(GEN_PUBSUB_H             ${GENERATED_DIR}/HelloMsgPubSubTypes.h)
-set(GEN_PUBSUB_CXX           ${GENERATED_DIR}/HelloMsgPubSubTypes.cxx)
+set(_NEED_GEN OFF)
+if(NOT GEN_CXX_SOURCES)
+  set(_NEED_GEN ON)
+endif()
 
-set(GENERATED_SOURCES
-  ${GEN_HELLO_H}
-  ${GEN_HELLO_CXX}
-  ${GEN_PUBSUB_H}
-  ${GEN_PUBSUB_CXX}
-)
-
-# Custom command to generate files only if tool is available.
-# If the generator isn't available, we fail with a helpful message.
-if (IPC_USE_FASTDDS)
+if (IPC_USE_FASTDDS AND _NEED_GEN)
   if (NOT FASTDDSGEN_EXE)
     message(FATAL_ERROR
-      "IPC_USE_FASTDDS=ON but no Fast DDS IDL generator found.\n"
-      "Install Fast-DDS-Gen (fastddsgen) or ensure it is in PATH.\n"
-      "Then re-run cmake.\n")
+      "IPC_USE_FASTDDS=ON but generated IDL files are missing and no Fast DDS IDL generator was found.\n"
+      "Expected generated sources under:\n"
+      "  ${IPCBENCH_GENERATED_IDL_DIR}\n"
+      "\n"
+      "Fix:\n"
+      "  1) Run: ./scripts/gen_idl.sh ${IDL_FILE}\n"
+      "     (recommended for cross builds), OR\n"
+      "  2) Put fastddsgen on PATH: export PATH=~/Fast-DDS-Gen/scripts:$PATH\n")
   endif()
 
-  add_custom_command(
-    OUTPUT ${GENERATED_SOURCES}
-    COMMAND ${CMAKE_COMMAND} -E make_directory ${GENERATED_DIR}
-    # Ensure generator outputs into ./generated
-    # fastddsgen supports -d <dir> to select output directory.
-    # Some versions accept -typeros2/-example; we avoid those.
-    COMMAND ${FASTDDSGEN_EXE} -d ${GENERATED_DIR} ${IDL_FILE}
-    DEPENDS ${IDL_FILE}
-    WORKING_DIRECTORY ${REPO_ROOT}
-    COMMENT "Generating Fast DDS types from ${IDL_FILE} into ${GENERATED_DIR}"
+  add_custom_target(generate_idl
+    COMMAND ${CMAKE_COMMAND} -E make_directory "${GENERATED_DIR}"
+    COMMAND ${FASTDDSGEN_EXE} -d "${GENERATED_DIR}" "${IDL_FILE_ABS}"
+    COMMENT "Generating Fast DDS types from ${IDL_FILE_ABS} into ${GENERATED_DIR}"
     VERBATIM
   )
-
-  add_custom_target(generate_idl DEPENDS ${GENERATED_SOURCES})
+else()
+  add_custom_target(generate_idl)
 endif()
+
+file(GLOB GEN_CXX_SOURCES "${IPCBENCH_GENERATED_IDL_DIR}/*.cxx")
+
+# -------------------------
+# Generate wrapper headers (future-proof includes)
+# -------------------------
+set(WRAP_DIR "${CMAKE_BINARY_DIR}/generated_include")
+file(MAKE_DIRECTORY "${WRAP_DIR}")
+
+set(WRAP_IDL_HPP     "${WRAP_DIR}/ipcbench_idl.hpp")
+set(WRAP_PUBSUB_HPP  "${WRAP_DIR}/ipcbench_idl_pubsub.hpp")
+
+file(WRITE "${WRAP_IDL_HPP}"
+"#pragma once\n"
+"// Auto-generated by CMake. Do not edit.\n"
+"#include \"${IPCBENCH_GEN_BASENAME}.hpp\"\n"
+)
+
+file(WRITE "${WRAP_PUBSUB_HPP}"
+"#pragma once\n"
+"// Auto-generated by CMake. Do not edit.\n"
+"#include \"${IPCBENCH_GEN_BASENAME}PubSubTypes.hpp\"\n"
+)
 
 # -------------------------
 # Common sources for apps
@@ -116,11 +131,17 @@ add_executable(receiver
 target_include_directories(sender PRIVATE ${APP_INC_DIR})
 target_include_directories(receiver PRIVATE ${APP_INC_DIR})
 
+# IMPORTANT: These are C sources, but must link as C++ because they link against C++ libs.
+set_target_properties(sender receiver PROPERTIES LINKER_LANGUAGE CXX)
+
 # -------------------------
 # Backend selection
 # -------------------------
-# We build one backend object file and link it into sender/receiver.
 add_library(ipc_backend_obj OBJECT)
+target_include_directories(ipc_backend_obj PRIVATE
+  ${APP_INC_DIR}
+  ${SHIM_INC_DIR}
+)
 
 if (IPC_USE_FASTDDS)
   add_compile_definitions(IPC_BACKEND_FASTDDS=1)
@@ -128,13 +149,11 @@ if (IPC_USE_FASTDDS)
   find_package(fastdds REQUIRED)
   find_package(fastcdr REQUIRED)
 
-  # Shim library (C++ shared lib exporting C ABI)
   add_library(fastdds_ipc_shim SHARED
     ${SHIM_INC_DIR}/fastdds_ipc.h
-    ${GENERATED_SOURCES}
+    ${GEN_CXX_SOURCES}
   )
 
-  # Ensure IDL is generated before building shim
   add_dependencies(fastdds_ipc_shim generate_idl)
 
   if (FD_SHIM_USE_WAITSET)
@@ -147,16 +166,35 @@ if (IPC_USE_FASTDDS)
 
   target_include_directories(fastdds_ipc_shim PUBLIC
     ${SHIM_INC_DIR}
-    ${GENERATED_DIR}
+    ${APP_INC_DIR}
+    ${WRAP_DIR}
+    ${IPCBENCH_GENERATED_IDL_DIR}
   )
 
   target_link_libraries(fastdds_ipc_shim PRIVATE fastdds fastcdr)
 
-  # C11 backend wrapper
+  # QNX: explicitly link C++ runtime + math (fixes std::__1, __cxa_*, log10f, etc.)
+if (CMAKE_SYSTEM_NAME STREQUAL "QNX")
+  target_link_libraries(fastdds_ipc_shim PUBLIC c++ m)
+  if (QNX_LINK_GCC_S)
+    target_link_libraries(fastdds_ipc_shim PUBLIC gcc_s)
+  endif()
+endif()
+
   target_sources(ipc_backend_obj PRIVATE ${APP_SRC_DIR}/ipc_backend_fastdds.c)
 
   target_link_libraries(sender PRIVATE fastdds_ipc_shim)
   target_link_libraries(receiver PRIVATE fastdds_ipc_shim)
+
+  # QNX: also link runtime libs to executables explicitly (belt-and-suspenders)
+if (CMAKE_SYSTEM_NAME STREQUAL "QNX")
+  target_link_libraries(sender   PRIVATE c++ m)
+  target_link_libraries(receiver PRIVATE c++ m)
+  if (QNX_LINK_GCC_S)
+    target_link_libraries(sender   PRIVATE gcc_s)
+    target_link_libraries(receiver PRIVATE gcc_s)
+  endif()
+endif()
 
 elseif (IPC_USE_PPS)
   add_compile_definitions(IPC_BACKEND_PPS=1)
@@ -169,13 +207,11 @@ endif()
 target_sources(sender PRIVATE $<TARGET_OBJECTS:ipc_backend_obj>)
 target_sources(receiver PRIVATE $<TARGET_OBJECTS:ipc_backend_obj>)
 
-# RPATH convenience for Linux (so it finds libfastdds_ipc_shim.so next to binaries if you place it there)
 set_target_properties(sender receiver PROPERTIES BUILD_RPATH "\$ORIGIN")
 
 # -------------------------
-# Nice-to-have: install layout
+# install layout
 # -------------------------
-# (Optional) Keep it simple; you can tweak for QNX packaging.
 install(TARGETS sender receiver fastdds_ipc_shim
         RUNTIME DESTINATION bin
         LIBRARY DESTINATION lib)

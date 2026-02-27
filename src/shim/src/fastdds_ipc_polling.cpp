@@ -5,16 +5,20 @@
 #include <memory>
 #include <thread>
 
+#include <fastdds/dds/core/ReturnCode.hpp>
+#include <fastdds/dds/domain/DomainParticipant.hpp>
 #include <fastdds/dds/domain/DomainParticipantFactory.hpp>
 #include <fastdds/dds/publisher/Publisher.hpp>
 #include <fastdds/dds/publisher/DataWriter.hpp>
+#include <fastdds/dds/publisher/qos/DataWriterQos.hpp>
 #include <fastdds/dds/subscriber/Subscriber.hpp>
 #include <fastdds/dds/subscriber/DataReader.hpp>
 #include <fastdds/dds/subscriber/SampleInfo.hpp>
+#include <fastdds/dds/subscriber/qos/DataReaderQos.hpp>
 #include <fastdds/dds/topic/Topic.hpp>
 
-#include "HelloMsg.h"
-#include "HelloMsgPubSubTypes.h"
+#include "ipcbench_idl.hpp"
+#include "ipcbench_idl_pubsub.hpp"
 
 using namespace eprosima::fastdds::dds;
 
@@ -59,8 +63,8 @@ static void to_dds(const fd_msg_t& in, HelloMsg& out)
 
 static void from_dds(const HelloMsg& in, fd_msg_t& out)
 {
-    out.counter   = (uint32_t)in.counter();
-    out.t_send_ns = (uint64_t)in.t_send_ns();
+    out.counter   = static_cast<uint32_t>(in.counter());
+    out.t_send_ns = static_cast<uint64_t>(in.t_send_ns());
     std::memset(out.text, 0, sizeof(out.text));
     std::strncpy(out.text, in.text().c_str(), sizeof(out.text) - 1);
 }
@@ -78,8 +82,10 @@ extern "C" fd_ipc_handle_t* fd_ipc_create(const char* participant_name)
     h->type = TypeSupport(new HelloMsgPubSubType());
     h->participant->register_type(h->type);
 
-    h->req_topic = h->participant->create_topic("HelloRequest", h->type->getName(), TOPIC_QOS_DEFAULT);
-    h->rep_topic = h->participant->create_topic("HelloReply",   h->type->getName(), TOPIC_QOS_DEFAULT);
+    const std::string type_name = h->type->get_name();
+
+    h->req_topic = h->participant->create_topic("HelloRequest", type_name, TOPIC_QOS_DEFAULT);
+    h->rep_topic = h->participant->create_topic("HelloReply",   type_name, TOPIC_QOS_DEFAULT);
     if (!h->req_topic || !h->rep_topic) return nullptr;
 
     h->pub = h->participant->create_publisher(PUBLISHER_QOS_DEFAULT);
@@ -87,7 +93,7 @@ extern "C" fd_ipc_handle_t* fd_ipc_create(const char* participant_name)
     if (!h->pub || !h->sub) return nullptr;
 
     DataWriterQos wqos = DATAWRITER_QOS_DEFAULT;
-    h->pub->get_default_datawriter_qos(wqos);   // picks XML default if loaded
+    h->pub->get_default_datawriter_qos(wqos);
     force_reliable_keep_last_32(wqos);
 
     h->req_writer = h->pub->create_datawriter(h->req_topic, wqos);
@@ -95,7 +101,7 @@ extern "C" fd_ipc_handle_t* fd_ipc_create(const char* participant_name)
     if (!h->req_writer || !h->rep_writer) return nullptr;
 
     DataReaderQos rqos = DATAREADER_QOS_DEFAULT;
-    h->sub->get_default_datareader_qos(rqos);   // picks XML default if loaded
+    h->sub->get_default_datareader_qos(rqos);
     force_reliable_keep_last_32(rqos);
 
     h->req_reader = h->sub->create_datareader(h->req_topic, rqos);
@@ -110,7 +116,7 @@ extern "C" int fd_ipc_send_request(fd_ipc_handle_t* h, const fd_msg_t* msg)
     if (!h || !msg) return -1;
     HelloMsg dds;
     to_dds(*msg, dds);
-    return (h->req_writer->write(&dds) == ReturnCode_t::RETCODE_OK) ? 0 : -1;
+    return (h->req_writer->write(&dds) == RETCODE_OK) ? 0 : -1;
 }
 
 extern "C" int fd_ipc_send_reply(fd_ipc_handle_t* h, const fd_msg_t* msg)
@@ -118,7 +124,7 @@ extern "C" int fd_ipc_send_reply(fd_ipc_handle_t* h, const fd_msg_t* msg)
     if (!h || !msg) return -1;
     HelloMsg dds;
     to_dds(*msg, dds);
-    return (h->rep_writer->write(&dds) == ReturnCode_t::RETCODE_OK) ? 0 : -1;
+    return (h->rep_writer->write(&dds) == RETCODE_OK) ? 0 : -1;
 }
 
 static int take_with_polling(DataReader* reader, fd_msg_t* out, int timeout_ms)
@@ -133,7 +139,7 @@ static int take_with_polling(DataReader* reader, fd_msg_t* out, int timeout_ms)
 
     while (timeout_ms < 0 || waited <= timeout_ms)
     {
-        while (reader->take_next_sample(&dds, &info) == ReturnCode_t::RETCODE_OK)
+        while (reader->take_next_sample(&dds, &info) == RETCODE_OK)
         {
             if (info.valid_data)
             {

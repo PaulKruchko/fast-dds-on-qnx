@@ -2,11 +2,11 @@
 #include <stdint.h>
 #include <time.h>
 
-typedef struct {
+typedef struct fd_msg_t {
     uint32_t counter;
-    uint64_t t_send_ns;   // stamped by sender
-    char     text[64];
-} msg_t;
+    uint64_t t_send_ns;
+    char     text[64]; // null-terminated
+} fd_msg_t;
 
 static inline uint64_t now_monotonic_ns(void)
 {

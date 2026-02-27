@@ -73,7 +73,13 @@ env/
 
 /qnx_stage/
 /build-qnx-deps/
-/build-linux-deps
+/build-linux-deps/
 /build-qnx*/
 /build-linux*/
+/linux_stage/
+/results/
+/docs/doxygen*/
+/docs/doxygen_xml*/
+/docs/data_dictionary*/
+/build-qnx/
 

@@ -1,5 +1,6 @@
 #pragma once
-#include "common.h"
+
+#include "common.h"   // defines fd_msg_t
 
 #ifdef __cplusplus
 extern "C" {
@@ -7,16 +8,14 @@ extern "C" {
 
 typedef struct ipc_handle ipc_handle_t;
 
-ipc_handle_t* ipc_create(const char* name);
+ipc_handle_t* ipc_create(const char* participant_name);
+void          ipc_destroy(ipc_handle_t*);
 
-int ipc_send_request(ipc_handle_t*, const msg_t*);
-int ipc_send_reply  (ipc_handle_t*, const msg_t*);
+int ipc_send_request(ipc_handle_t*, const fd_msg_t*);
+int ipc_send_reply  (ipc_handle_t*, const fd_msg_t*);
 
-// 1=got sample, 0=timeout/no data, -1=error
-int ipc_take_request(ipc_handle_t*, msg_t*, int timeout_ms);
-int ipc_take_reply  (ipc_handle_t*, msg_t*, int timeout_ms);
-
-void ipc_destroy(ipc_handle_t*);
+int ipc_take_request(ipc_handle_t*, fd_msg_t*, int timeout_ms);
+int ipc_take_reply  (ipc_handle_t*, fd_msg_t*, int timeout_ms);
 
 #ifdef __cplusplus
 }
