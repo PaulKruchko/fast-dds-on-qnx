@@ -29,9 +29,20 @@ die() { echo ""; echo "ERROR: $*" >&2; exit 1; }
 
 mkdir -p "$OUTDIR"
 
-LD_LIBRARY_PATH="$LIB_DIR:$BIN_DIR:/lib:/usr/lib:${LD_LIBRARY_PATH:-}"
+# Put bundle libs first, but keep typical QNX search locations too.
+BASE_LD="$LIB_DIR:$BIN_DIR:/proc/boot:/lib:/usr/lib:/lib/dll:/lib/dll/pci"
+if [ -n "${LD_LIBRARY_PATH:-}" ]; then
+  LD_LIBRARY_PATH="$BASE_LD:$LD_LIBRARY_PATH"
+else
+  LD_LIBRARY_PATH="$BASE_LD"
+fi
 export LD_LIBRARY_PATH
 
+# Allow apps to read these.
+export CAPTURE_CSV
+export IPCBENCH_BACKEND
+
+# Only set profiles var if the file exists.
 if [ -f "$PROFILES" ]; then
   FASTDDS_DEFAULT_PROFILES_FILE="$PROFILES"
   export FASTDDS_DEFAULT_PROFILES_FILE
@@ -46,7 +57,6 @@ cleanup() {
   if [ "$KILL_RECEIVER" = "1" ] && [ -n "$RECEIVER_PID" ]; then
     log "Stopping receiver (pid=$RECEIVER_PID)"
     kill "$RECEIVER_PID" 2>/dev/null || true
-    # wait may not exist on some shells; ignore errors
     wait "$RECEIVER_PID" 2>/dev/null || true
   fi
 }
@@ -62,7 +72,6 @@ run_receiver_bg() {
   log "Starting receiver (background)"
   ( cd "$BIN_DIR" && ./receiver "$RECEIVER_NAME" ) &
   RECEIVER_PID="$!"
-  # sleep usually exists; if not, remove this line
   sleep 1 2>/dev/null || true
 }
 
@@ -83,15 +92,17 @@ log "  MODE=$MODE"
 log "  TARGET_DIR=$TARGET_DIR"
 log "  OUTDIR=$OUTDIR"
 log "  LD_LIBRARY_PATH=$LD_LIBRARY_PATH"
+[ -n "${FASTDDS_DEFAULT_PROFILES_FILE:-}" ] && log "  FASTDDS_DEFAULT_PROFILES_FILE=$FASTDDS_DEFAULT_PROFILES_FILE" || true
 
 case "$MODE" in
   receiver) run_receiver_fg ;;
   sender)   run_sender_fg ;;
   both)
+    # both-mode only makes sense with background receiver
     if [ "$RECEIVER_BG" = "1" ]; then
       run_receiver_bg
     else
-      run_receiver_fg
+      die "MODE=both requires RECEIVER_BG=1 (or use two terminals: receiver + sender)"
     fi
 
     log "Starting sender (foreground)"

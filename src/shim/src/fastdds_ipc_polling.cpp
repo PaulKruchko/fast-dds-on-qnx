@@ -3,18 +3,27 @@
 #include <chrono>
 #include <cstring>
 #include <memory>
+#include <string>
 #include <thread>
+
+#include <fastdds/rtps/transport/UDPv4TransportDescriptor.hpp>
+#include <fastdds/rtps/common/Locator.hpp>
+#include <fastdds/utils/IPLocator.hpp>
 
 #include <fastdds/dds/core/ReturnCode.hpp>
 #include <fastdds/dds/domain/DomainParticipant.hpp>
 #include <fastdds/dds/domain/DomainParticipantFactory.hpp>
+#include <fastdds/dds/domain/qos/DomainParticipantQos.hpp>
+
 #include <fastdds/dds/publisher/Publisher.hpp>
 #include <fastdds/dds/publisher/DataWriter.hpp>
 #include <fastdds/dds/publisher/qos/DataWriterQos.hpp>
+
 #include <fastdds/dds/subscriber/Subscriber.hpp>
 #include <fastdds/dds/subscriber/DataReader.hpp>
 #include <fastdds/dds/subscriber/SampleInfo.hpp>
 #include <fastdds/dds/subscriber/qos/DataReaderQos.hpp>
+
 #include <fastdds/dds/topic/Topic.hpp>
 
 #include "ipcbench_idl.hpp"
@@ -69,12 +78,40 @@ static void from_dds(const HelloMsg& in, fd_msg_t& out)
     std::strncpy(out.text, in.text().c_str(), sizeof(out.text) - 1);
 }
 
+static void configure_participant_qos_udp_only(DomainParticipantQos& pqos)
+{
+    // Disable builtin transports (prevents SHM)
+    pqos.transport().use_builtin_transports = false;
+    pqos.transport().user_transports.clear();
+
+    // Force UDPv4 transport
+    pqos.transport().user_transports.push_back(
+        std::make_shared<eprosima::fastdds::rtps::UDPv4TransportDescriptor>());
+
+    // Avoid multicast discovery; use loopback unicast discovery
+    pqos.wire_protocol().builtin.avoid_builtin_multicast = true;
+    pqos.wire_protocol().builtin.metatrafficMulticastLocatorList.clear();
+    pqos.wire_protocol().builtin.metatrafficUnicastLocatorList.clear();
+    pqos.wire_protocol().builtin.initialPeersList.clear();
+
+    eprosima::fastdds::rtps::Locator_t meta_uc;
+    // setIPv4 sets the address and (in current Fast-DDS) sets kind appropriately.
+    eprosima::fastdds::rtps::IPLocator::setIPv4(meta_uc, 127, 0, 0, 1);
+    meta_uc.port = 7412;
+
+    pqos.wire_protocol().builtin.metatrafficUnicastLocatorList.push_back(meta_uc);
+    pqos.wire_protocol().builtin.initialPeersList.push_back(meta_uc);
+}
+
 extern "C" fd_ipc_handle_t* fd_ipc_create(const char* participant_name)
 {
     auto h = std::make_unique<fd_ipc_handle>();
 
     DomainParticipantQos pqos = PARTICIPANT_QOS_DEFAULT;
     pqos.name(participant_name ? participant_name : "fd_ipc");
+
+    // ---- Force UDP-only, disable builtin transports (prevents SHM) ----
+    configure_participant_qos_udp_only(pqos);
 
     h->participant = DomainParticipantFactory::get_instance()->create_participant(0, pqos);
     if (!h->participant) return nullptr;
@@ -116,7 +153,7 @@ extern "C" int fd_ipc_send_request(fd_ipc_handle_t* h, const fd_msg_t* msg)
     if (!h || !msg) return -1;
     HelloMsg dds;
     to_dds(*msg, dds);
-    return (h->req_writer->write(&dds) == RETCODE_OK) ? 0 : -1;
+    return (h->req_writer->write(&dds) == ReturnCode_t::RETCODE_OK) ? 0 : -1;
 }
 
 extern "C" int fd_ipc_send_reply(fd_ipc_handle_t* h, const fd_msg_t* msg)
@@ -124,9 +161,10 @@ extern "C" int fd_ipc_send_reply(fd_ipc_handle_t* h, const fd_msg_t* msg)
     if (!h || !msg) return -1;
     HelloMsg dds;
     to_dds(*msg, dds);
-    return (h->rep_writer->write(&dds) == RETCODE_OK) ? 0 : -1;
+    return (h->rep_writer->write(&dds) == ReturnCode_t::RETCODE_OK) ? 0 : -1;
 }
 
+// Returns: 1 = got sample, 0 = timeout, -1 = error
 static int take_with_polling(DataReader* reader, fd_msg_t* out, int timeout_ms)
 {
     if (!reader || !out) return -1;
@@ -139,7 +177,7 @@ static int take_with_polling(DataReader* reader, fd_msg_t* out, int timeout_ms)
 
     while (timeout_ms < 0 || waited <= timeout_ms)
     {
-        while (reader->take_next_sample(&dds, &info) == RETCODE_OK)
+        while (reader->take_next_sample(&dds, &info) == ReturnCode_t::RETCODE_OK)
         {
             if (info.valid_data)
             {

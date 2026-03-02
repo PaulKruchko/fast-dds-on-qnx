@@ -2,46 +2,7 @@
 <dds xmlns="http://www.eprosima.com">
   <profiles>
 
-    <participant profile_name="ipc_participant" is_default_profile="true">
-      <rtps>
-        <!-- Disable builtin transports (prevents SHM) -->
-        <useBuiltinTransports>false</useBuiltinTransports>
-
-        <!-- Declare the transport descriptor HERE (this is what your parser expects) -->
-        <transport_descriptors>
-          <transport_descriptor>
-            <transport_id>udp_transport</transport_id>
-            <type>UDPv4</type>
-          </transport_descriptor>
-        </transport_descriptors>
-
-        <!-- Select that transport -->
-        <userTransports>
-          <transport_id>udp_transport</transport_id>
-        </userTransports>
-
-        <builtin>
-          <metatrafficUnicastLocatorList>
-            <locator>
-              <udpv4>
-                <address>127.0.0.1</address>
-                <port>7412</port>
-              </udpv4>
-            </locator>
-          </metatrafficUnicastLocatorList>
-
-          <initialPeersList>
-            <locator>
-              <udpv4>
-                <address>127.0.0.1</address>
-                <port>7412</port>
-              </udpv4>
-            </locator>
-          </initialPeersList>
-        </builtin>
-      </rtps>
-    </participant>
-
+    <!-- Writer QoS: RELIABLE + KEEP_LAST depth -->
     <data_writer profile_name="ipc_writer" is_default_profile="true">
       <topic>
         <historyQos>
@@ -60,6 +21,7 @@
       </qos>
     </data_writer>
 
+    <!-- Reader QoS: RELIABLE + KEEP_LAST depth -->
     <data_reader profile_name="ipc_reader" is_default_profile="true">
       <topic>
         <historyQos>
